@@ -1,31 +1,44 @@
-<script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
+<!-- HTML -->
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <div class="plus" @click="increase()">+</div>
+  <h1>{{ count }}</h1>
+  <div class="minus" @click="decrease()">-</div>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
+<!-- JS / TS -->
+<script>
+export default {
+  data() {
+    return {
+      count: 0,
+    };
+  },
+  methods: {
+    increase() {
+      this.count += 1;
+    },
+    decrease() {
+      this.count -= 1;
+    },
+  },
+};
+</script>
+
+<!-- CSS / SCSS -->
+<style>
+h1 {
+  font-size: 50px;
+  color: royalblue;
+  margin: 0;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+.plus,
+.minus {
+  cursor: pointer;
+  font-size: 30px;
+  width: 300px;
+  height: 50px;
+  border: 1px solid #000;
+  text-align: center;
+  line-height: 50px;
 }
 </style>
